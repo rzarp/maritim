@@ -29,7 +29,12 @@ Route::put('/product/edit/{id}','ProductUserController@update')->name('product.u
 Route::get('/product/hapus/{id}','ProductUserController@destroy')->name('product.destroy');
 
 // User (Admin)
-Route::get('/user/input','AdminController@inputuser')->name('input.user');
+Route::get('/user/indexuser','AdminController@indexuser')->name('index.user');
+Route::get('/user/inputuser','AdminController@create')->name('create.user');
+Route::post('/user/inputuser','AdminController@store')->name('store.user');
+Route::get('/user/edituser','AdminController@edit')->name('edit.user');
+Route::put('/user/edituser','AdminController@update')->name('update.user');
+Route::delete('/user/deleteuser','AdminController@destroy')->name('destroy.user');
 
 Auth::routes();
 
