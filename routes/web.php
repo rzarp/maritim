@@ -32,9 +32,9 @@ Route::get('/product/hapus/{id}','ProductUserController@destroy')->name('product
 Route::get('/user/indexuser','AdminController@indexuser')->name('index.user');
 Route::get('/user/inputuser','AdminController@create')->name('create.user');
 Route::post('/user/inputuser','AdminController@store')->name('store.user');
-Route::get('/user/edituser','AdminController@edit')->name('edit.user');
-Route::put('/user/edituser','AdminController@update')->name('update.user');
-Route::delete('/user/deleteuser','AdminController@destroy')->name('destroy.user');
+Route::get('/user/edituser/{id}','AdminController@edit')->name('edit.user');
+Route::put('/user/edituser/{id}','AdminController@update')->name('update.user');
+Route::delete('/user/deleteuser/{id}','AdminController@destroy')->name('destroy.user');
 
 Auth::routes();
 
