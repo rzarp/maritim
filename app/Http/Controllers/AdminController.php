@@ -2,21 +2,34 @@
 
 namespace App\Http\Controllers;
 
-use App\Admin;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Input;
+use Illuminate\Support\Facades\Hash;
+use Redirect;
+use Session;
+use App\Admin;
+use App\User;
 
 class AdminController extends Controller
 {
     
-    public function inputuser() 
+    public function indexuser() 
     {
-        return view('admin-master.input-user');
+        $data['user']= User::all();
+        return view('admin-master.lihat-user',$data);
     }
 
-    
-    public function lihatuser(Request $request) 
+        /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create()
     {
-        return view('admin-master.lihat-user');
+        //
+        $data['is_admin'] = [0,1];
+        return view('admin-master.input-user',$data);
     }
 
     /**
@@ -28,6 +41,21 @@ class AdminController extends Controller
     public function store(Request $request)
     {
         //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'is_admin' => 'required',
+        ]);
+
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->is_admin = $request->is_admin;
+        $user->save();
+
+        return redirect(route('index.user'))->with('pesan','Data Berhasil Ditambahkan');
     }
 
     /**
@@ -47,9 +75,12 @@ class AdminController extends Controller
      * @param  \App\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function edit(Admin $admin)
+    public function edit($id)
     {
         //
+        $data['is_admin'] = [0,1];
+        $data['user'] = User::find($id);
+        return view('admin-master/edit-user',$data);
     }
 
     /**
@@ -59,9 +90,24 @@ class AdminController extends Controller
      * @param  \App\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Admin $admin)
+    public function update(Request $request, $id)
     {
         //
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+            'is_admin' => 'required',
+        ]);
+
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->is_admin = $request->is_admin;
+        $user->save();
+
+        return redirect(route('index.user'))->with('pesan','Data Berhasil Disimpan');
     }
 
     /**
@@ -70,8 +116,12 @@ class AdminController extends Controller
      * @param  \App\Admin  $admin
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Admin $admin)
+    public function destroy($id)
     {
         //
+        $user = User::find($id);
+        $user->delete();
+
+        return redirect(route('index.user'))->with('pesan','Data Berhasil Dihapus');
     }
 }
