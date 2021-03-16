@@ -11,6 +11,14 @@ use Session;
 use App\Admin;
 use App\User;
 
+use File;
+use DB;
+use Auth;
+use DataTables;
+use App\Product_user;
+
+use App\Contacts;
+
 class AdminController extends Controller
 {
     
@@ -20,27 +28,16 @@ class AdminController extends Controller
         return view('admin-master.lihat-user',$data);
     }
 
-        /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
         $data['is_admin'] = [0,1];
         return view('admin-master.input-user',$data);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
+   
     public function store(Request $request)
     {
-        //
         $request->validate([
             'name' => 'required',
             'email' => 'required',
@@ -58,41 +55,16 @@ class AdminController extends Controller
         return redirect(route('index.user'))->with('pesan','Data Berhasil Ditambahkan');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Admin  $admin
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Admin $admin)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Admin  $admin
-     * @return \Illuminate\Http\Response
-     */
+ 
     public function edit($id)
     {
-        //
         $data['is_admin'] = [0,1];
         $data['user'] = User::find($id);
         return view('admin-master/edit-user',$data);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Admin  $admin
-     * @return \Illuminate\Http\Response
-     */
     public function update(Request $request, $id)
     {
-        //
         $request->validate([
             'name' => 'required',
             'email' => 'required',
@@ -110,18 +82,67 @@ class AdminController extends Controller
         return redirect(route('index.user'))->with('pesan','Data Berhasil Disimpan');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Admin  $admin
-     * @return \Illuminate\Http\Response
-     */
+  
     public function destroy($id)
     {
-        //
         $user = User::find($id);
         $user->delete();
 
         return redirect(route('index.user'))->with('pesan','Data Berhasil Dihapus');
+    }
+
+
+    // Product User bakal admin ngatur iklan mereka
+    public function lihatproduct(Request $request)
+    {
+         if ($request->ajax()) {
+            $product  = Product_user::all();
+            return Datatables::of($product)
+                ->addIndexColumn()  
+                ->addColumn('action', function($row) {
+                    $btn = '
+                        <div class="text-center">
+                            <div class="btn-group">
+                                <a href="'.route('product.hapus',['id' => $row->id]).'"  class="btn btn-danger btn-sm delete-confirm ">Hapus</a>
+                            </div>
+                        </div>
+                    ';
+
+                    
+                    return $btn;
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+
+        return view('admin-master.lihat-product');
+    }
+    
+    public function destroy_product($id)
+    {
+        $berita = DB::table('product_users')->where('id',$id)->first();
+        if($berita->gambar != 'img/beritas/noimage.png') {
+            File::delete($berita->gambar);
+        }
+
+        DB::table('product_users')->where('id',$id)->delete();
+
+        return redirect(route('product.lihat'))->with('pesan','Data Berhasil dihapus!');
+    }
+
+    public function lihatcontact() {
+        $contact = Contacts::all();
+        return view('admin-master.lihat-contact',['contact'=>$contact]);
+    }
+    public function destroy_contact($id)
+    {
+        $contact = Contacts::find($id);
+        $contact->delete();
+
+        return redirect(route('lihat.contact'))->with('pesan','Data Berhasil dihapus!');
+    }
+     public function detail($id) {
+        $contact['contact'] = DB::select('select * from contacts where id = ?', [$id]);
+        return view('admin-master.detail-contact',$contact);
     }
 }

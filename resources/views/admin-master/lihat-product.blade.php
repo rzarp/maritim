@@ -1,7 +1,7 @@
 @extends('admin-master.base')
 @section('content')
     <div class="section-header">
-        <h1>Lihat Data User</h1>        
+        <h1>Lihat Berita</h1>        
     </div>
 
      @if (session()->has('pesan'))
@@ -19,40 +19,26 @@
         <div class="col-12 col-md-12 col-lg-12">
                 <div class="card">
                   <div class="card-header">
-                    <h4>User</h4>
-                    <a class="btn btn-primary" href="{{route('create.user')}}">Input</a>
+                    <h4>Product</h4>
                   </div>
                   
                   <div class="card-body">
                     <table class="table data-table">
                       <thead>
                         <tr>
-                            <th scope="col">Id</th>
-                            <th scope="col">Nama</th>
-                            <th scope="col">Email</th>
-                            <th scope="col">Is_admin</th>
-                            <th scope="col">Action</th>
+                            <th scope="col">no</th>
+                            <th scope="col">Judul</th>
+                            <th scope="col">Harga</th>
+                            <th scope="col">Wa</th>
+                            <th scope="col">gambar</th>
+                            <th scope="col">desk</th>
+                            <th scope="col">alamat</th>
+                            <th scope="col">Aksi</th>
                         </tr>
                       </thead>
-                     @foreach($user as $users)
-                            <tr>
-                                <td>{{ $users['id'] }}</td>
-                                <td>{{ $users['name'] }}</td>
-                                <td>{{ $users['email'] }}</td>
-                                <td>{{ $users['is_admin'] }}</td>
-                                <td class="text-center">
-                                    <form method="post" action="{{route ('destroy.user',['id' => $users->id]) }}">
-                                        @method('delete')
-                                        @csrf
-                                        <div class="btn-group">
-                                            <a class="btn btn-success" href="{{route ('edit.user',['id' => $users->id]) }}">Edit</a>
-                                            <button type="submit" class="btn btn-danger">Delete</button>
-                                        </div>
-                                    </form>
-                                </td>
-                            </tr>
-                            @endforeach
-                        </tbody> 
+                      <tbody>
+                        
+                      </tbody> 
                     </table>
                   </div>
                 </div>
@@ -65,12 +51,12 @@
     
 @endsection
 
-{{-- @section('script')
+@section('script')
 <script>
     $('.data-table').DataTable({
         processing: true,
         serverSide: true,
-        ajax: "{{ route('lihat.product')}}",
+        ajax: "{{ route('product.lihat')}}",
         columns: [
             {
                 data: 'DT_RowIndex',
@@ -134,4 +120,4 @@
 </script>
 
 
-@endsection --}}
+@endsection

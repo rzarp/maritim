@@ -35,10 +35,27 @@ Route::post('/user/inputuser','AdminController@store')->name('store.user');
 Route::get('/user/edituser/{id}','AdminController@edit')->name('edit.user');
 Route::put('/user/edituser/{id}','AdminController@update')->name('update.user');
 Route::delete('/user/deleteuser/{id}','AdminController@destroy')->name('destroy.user');
+// Product (Admin)
+Route::get('/product/lihat','AdminController@lihatproduct')->name('product.lihat');
+Route::get('/product/hapus/{id}','AdminController@destroy_product')->name('product.hapus');
+// Contact (Admin)
+
+
+
+// dashboard
+Route::get('/dashboard/berita','DashboardController@shop')->name('dashboard.shop');
+// contact(dashboard)
+Route::get('/dashboard/contact','DashboardController@contact')->name('dashboard.contact');
+Route::post('/contact/tambah','DashboardController@contact_store')->name('contact.store');
+
+Route::get('/contact/lihat','AdminController@lihatcontact')->name('lihat.contact');
+Route::delete('/contact/hapus/{id}','AdminController@destroy_contact')->name('contact.destroy');
+Route::get('/contact/detail/{id}','AdminController@detail')->name('contact.detail');
+
+
+
 
 Auth::routes();
-
 Route::get('/home', 'HomeController@index')->name('home');
-
 Route::get('admin/home', 'HomeController@adminHome')->name('admin.home')->middleware('is_admin');
 
