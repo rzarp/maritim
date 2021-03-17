@@ -13,16 +13,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('dashboard.dashboard');
-});
+// Route::get('/', function () {
+//     return view('dashboard.dashboard');
+// });
 
  
+Route::get('/','DashboardController@dashboard')->name('dashboard');
 
 
 // Product (User)
 Route::get('/product/input','ProductUserController@inputproduct')->name('input.product');
-Route::get('/product/lihat','ProductUserController@lihatproduct')->name('lihat.product');
+Route::get('/product/data','ProductUserController@lihatproduct')->name('lihat.product');
 Route::post('/product/tambah','ProductUserController@store')->name('product.store');
 Route::get('/product/edit/{id}','ProductUserController@edit')->name('product.edit');
 Route::put('/product/edit/{id}','ProductUserController@update')->name('product.update');
@@ -39,18 +40,26 @@ Route::delete('/user/deleteuser/{id}','AdminController@destroy')->name('destroy.
 Route::get('/product/lihat','AdminController@lihatproduct')->name('product.lihat');
 Route::get('/product/hapus/{id}','AdminController@destroy_product')->name('product.hapus');
 // Contact (Admin)
-
-
-
-// dashboard
-Route::get('/dashboard/berita','DashboardController@shop')->name('dashboard.shop');
-// contact(dashboard)
-Route::get('/dashboard/contact','DashboardController@contact')->name('dashboard.contact');
-Route::post('/contact/tambah','DashboardController@contact_store')->name('contact.store');
-
 Route::get('/contact/lihat','AdminController@lihatcontact')->name('lihat.contact');
 Route::delete('/contact/hapus/{id}','AdminController@destroy_contact')->name('contact.destroy');
 Route::get('/contact/detail/{id}','AdminController@detail')->name('contact.detail');
+// contact(dashboard)
+Route::get('/dashboard/contact','DashboardController@contact')->name('dashboard.contact');
+Route::post('/contact/tambah','DashboardController@contact_store')->name('contact.store');
+// Berita (Admin)
+Route::get('/berita/input','AdminController@inputberita')->name('berita.input');
+Route::post('/berita/tambah','AdminController@storeberita')->name('berita.store');
+Route::get('/berita/lihat','AdminController@lihatberita')->name('lihat.berita');
+Route::get('/berita/edit/{id}','AdminController@editberita')->name('berita.edit');
+Route::put('/berita/edit/{id}','AdminController@updateberita')->name('berita.update');
+Route::get('/berita/hapus/{id}','AdminController@destroyberita')->name('berita.destroy');
+
+
+// dashboard
+Route::get('/dashboard/shop','DashboardController@shop')->name('dashboard.shop');
+Route::get('/dashboard/berita','DashboardController@berita')->name('dashboard.berita');
+
+
 
 
 

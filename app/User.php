@@ -23,6 +23,10 @@ class User extends Authenticatable
     {
         return $this->hasMany(Product_user::class);
     }
+    public function data_berita()
+    {
+        return $this->hasMany(Berita::class);
+    }
 
     /**
      * The attributes that should be hidden for arrays.

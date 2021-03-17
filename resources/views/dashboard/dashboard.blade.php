@@ -98,6 +98,7 @@
           </div>
         </div>
         <div class="row">
+        {{-- @forelse($product_random as $pr) --}}
           <div class="col-md-12">
             <div class="nonloop-block-3 owl-carousel">
               <div class="item">
@@ -161,7 +162,10 @@
                 </div>
               </div>
             </div>
+            {{-- @empty
+            <p>asdasda</p> --}}
           </div>
+          {{-- @endforelse --}}
         </div>
       </div>
     </div>

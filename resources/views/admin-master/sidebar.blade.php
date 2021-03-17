@@ -1,6 +1,6 @@
 <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="/">purbalingga</a>
+            <a href="/">Maritim</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
             <a href="/">Mart</a>
@@ -27,7 +27,16 @@
               <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i> <span>Contact</span></a>
                 <ul class="dropdown-menu">
-                  <li><a class="nav-link beep beep-sidebar" href="{{route('lihat.contact')}}">Lihat Product</a></li>
+                  <li><a class="nav-link beep beep-sidebar" href="{{route('lihat.contact')}}">Lihat Contact</a></li>
+                </ul>
+              </li>
+               <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i> <span>Berita</span></a>
+                <ul class="dropdown-menu">
+                  <li><a class="nav-link beep beep-sidebar" href="{{route('berita.input')}}">Input Berita</a></li>
+                </ul>
+                <ul class="dropdown-menu">
+                  <li><a class="nav-link beep beep-sidebar" href="{{route('lihat.berita')}}">Lihat Berita</a></li>
                 </ul>
               </li>
         </aside>

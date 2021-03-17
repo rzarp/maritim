@@ -10,7 +10,7 @@
               </ul>
             </li> --}}
             <li><a href="{{route('dashboard.shop')}}">Shop</a></li>
-            <li><a href="">Berita</a></li>
+            <li><a href="{{route('dashboard.berita')}}">Berita</a></li>
             <li><a href="{{route('dashboard.contact')}}">Contact</a></li>
           </ul>
         </div>
