@@ -21,20 +21,22 @@
               </div>
             </div>
             <div class="row">
-
+            @forelse ($berita as $b)
               <div class="col-6 col-md-4 mb-4" data-aos="fade-up">
                 <div class="block-4 text-center border">
                   <figure class="block-4-image">
-                    <a href="shop-single.html"><img src="{{asset('boostrap/images/cloth_1.jpg')}}" alt="Image placeholder" class="img-fluid"></a>
+                    <a href=""><img src="{{asset($b->gambar)}}" alt="Image placeholder" class="img-fluid"></a>
                   </figure>
                   <div class="block-4-text p-4">
-                    <h3><a href="shop-single.html">Tank Top</a></h3>
-                    <p class="mb-0">Finding perfect t-shirt</p>
-                    <p class="text-primary font-weight-bold">$50</p>
+                    <h3 class="text-truncate"><a href="{{ route('detail.berita',$b->id) }}">{{$b->judul}}</a></h3>
+                    <p class="mb-0 text-truncate">{{$b->desk}}</p>
+                    {{-- <p class="text-primary font-weight-bold">$50</p> --}}
                   </div>
                 </div>
               </div>
-              <div class="col-6 col-md-4 mb-4" data-aos="fade-up">
+              @empty 
+              <h1>Tidak ada Data Berita</h1>
+              {{-- <div class="col-6 col-md-4 mb-4" data-aos="fade-up">
                 <div class="block-4 text-center border">
                   <figure class="block-4-image">
                     <a href="shop-single.html"><img src="{{asset('boostrap/images/cloth_1.jpg')}}" alt="Image placeholder" class="img-fluid"></a>
@@ -57,22 +59,14 @@
                     <p class="text-primary font-weight-bold">$50</p>
                   </div>
                 </div>
-              </div>
-
+              </div> --}}
+            @endforelse
             </div>
             <div class="row" data-aos="fade-up">
               <div class="col-md-12 text-center">
-                <div class="site-block-27">
                   <ul>
-                    <li><a href="#">&lt;</a></li>
-                    <li class="active"><span>1</span></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&gt;</a></li>
+                    {{ $berita->links() }}
                   </ul>
-                </div>
               </div>
             </div>
           </div>

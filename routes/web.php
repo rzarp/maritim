@@ -13,8 +13,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-// Route::get('/', function () {
-//     return view('dashboard.dashboard');
+// Route::get('/log', function () {
+//     return view('dashboard.login');
 // });
 
  
@@ -67,7 +67,8 @@ Route::get('/dashboard/shop','DashboardController@shop')->name('dashboard.shop')
 Route::get('/dashboard/berita','DashboardController@berita')->name('dashboard.berita');
 // dashboard detail shop
 Route::get('/detail/shop/{id}','DashboardController@detail_shop')->name('detail.shop');
-
+// dashboard Detail Berita
+Route::get('/detail/berita/{id}','DashboardController@detail_berita')->name('detail.berita');
 
 
 
@@ -76,4 +77,7 @@ Route::get('/detail/shop/{id}','DashboardController@detail_shop')->name('detail.
 Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('admin/home', 'HomeController@adminHome')->name('admin.home')->middleware('is_admin');
+
+
+
 

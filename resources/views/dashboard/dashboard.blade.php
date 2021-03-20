@@ -128,21 +128,25 @@
       <div class="container">
         <div class="row justify-content-center  mb-5">
           <div class="col-md-7 site-section-heading text-center pt-4">
-            <h2>Big Sale!</h2>
+            <h2>Berita</h2>
           </div>
         </div>
+        @forelse ($berita_random as $br)
         <div class="row align-items-center">
           <div class="col-md-12 col-lg-7 mb-5">
-            <a href="#"><img src="boostrap/images/blog_1.jpg" alt="Image placeholder" class="img-fluid rounded"></a>
+            <a href="#"><img src="{{asset($br->gambar)}}" alt="Image placeholder" class="img-fluid rounded"></a>
           </div>
           <div class="col-md-12 col-lg-5 text-center pl-md-5">
-            <h2><a href="#">50% less in all items</a></h2>
-            <p class="post-meta mb-4">By <a href="#">Carl Smith</a> <span class="block-8-sep">&bullet;</span> September 3, 2018</p>
-            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quisquam iste dolor accusantium facere corporis ipsum animi deleniti fugiat. Ex, veniam?</p>
-            <p><a href="#" class="btn btn-primary btn-sm">Shop Now</a></p>
+            <h2><a href="#">{{$br->judul}}</a></h2>
+            <p class="post-meta mb-4">By {{$br->user['name']}} <span class="block-8-sep">
+            <p class="text-truncate">{{$br->desk}}</p>
+            <p><a href="{{ route('detail.berita',$br->id) }}" class="btn btn-primary btn-sm">Baca Berita</a></p>
           </div>
+          @empty 
+          <h1>Data Kosong</h1>
         </div>
       </div>
+      @endforelse
     </div>
 
 @endsection

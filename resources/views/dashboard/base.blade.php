@@ -42,6 +42,7 @@
             </div>
             
             <div class="col-6 col-md-4 order-3 order-md-3 text-right">
+             @if (Auth::guest())
               <div class="site-top-icons">
                 <ul>
                   <li><a href="{{route('home')}}"><span class="icon icon-person"></span></a></li>
@@ -55,7 +56,16 @@
                   <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li> --}}
                 </ul>
               </div> 
+              @else
+              <a href="{{ url('/logout') }}"  onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                    
+              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+              @csrf
+              </form>
+              <span class="item-text">Logout</span></a>
             </div>
+            @endif
             
 
           </div>
