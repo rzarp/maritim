@@ -10,20 +10,33 @@ use DB;
 class DashboardController extends Controller
 {
      public function shop() {
-        $data['product'] = Product_user::all();
+        $data['subtitle'] = "Shop";
+        $data['product'] = Product_user::with('user')->paginate(6);
         return view('dashboard.shop',$data);
     }
 
+    public function detail_shop ($id) 
+    {
+        // $data['product'] = Product_user::with('user')->select('product_users','id');
+        $data['product'] =  Product_user::with('user')
+                            ->where('id',$id)->get();
+        $data['product_random'] = Product_user::with('user')->inRandomOrder()->limit(5)->get();
+        return view('dashboard.detail-shop',$data); 
+    }
+
     public function dashboard() {
-        $data['product_random'] = DB::table('product_users')->inRandomOrder()->first();
+        $data['subtitle'] = "Dashboard";
+        $data['product_random'] = Product_user::with('user')->inRandomOrder()->limit(5)->latest()->get();
         return view('dashboard.dashboard',$data);
     }
      public function berita() {
-        return view('dashboard.berita');
+        $data['subtitle'] = "Berita";
+        return view('dashboard.berita',$data);
     }
 
     public function contact() {
-        return view('dashboard.contact');
+        $data['subtitle'] = "Contact";
+        return view('dashboard.contact',$data);
     }
 
      public function contact_store(Request $request) {

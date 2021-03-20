@@ -38,7 +38,7 @@ Route::put('/user/edituser/{id}','AdminController@update')->name('update.user');
 Route::delete('/user/deleteuser/{id}','AdminController@destroy')->name('destroy.user');
 // Product (Admin)
 Route::get('/product/lihat','AdminController@lihatproduct')->name('product.lihat');
-Route::get('/product/hapus/{id}','AdminController@destroy_product')->name('product.hapus');
+Route::get('/product/delete/{id}','AdminController@destroy_product')->name('product.hapus');
 // Contact (Admin)
 Route::get('/contact/lihat','AdminController@lihatcontact')->name('lihat.contact');
 Route::delete('/contact/hapus/{id}','AdminController@destroy_contact')->name('contact.destroy');
@@ -53,11 +53,20 @@ Route::get('/berita/lihat','AdminController@lihatberita')->name('lihat.berita');
 Route::get('/berita/edit/{id}','AdminController@editberita')->name('berita.edit');
 Route::put('/berita/edit/{id}','AdminController@updateberita')->name('berita.update');
 Route::get('/berita/hapus/{id}','AdminController@destroyberita')->name('berita.destroy');
+// User (User)
+Route::get('/user/setting','ProductUserController@setting')->name('setting.user');
+Route::get('/user/editsetting/{id}','ProductUserController@edit_setting')->name('edit.setting');
+Route::put('/user/editsetting/{id}','ProductUserController@update_setting')->name('update.setting');
+Route::delete('/user/deletesetting/{id}','ProductUserController@setting_destroy')->name('destroy.setting');
+
+
 
 
 // dashboard
 Route::get('/dashboard/shop','DashboardController@shop')->name('dashboard.shop');
 Route::get('/dashboard/berita','DashboardController@berita')->name('dashboard.berita');
+// dashboard detail shop
+Route::get('/detail/shop/{id}','DashboardController@detail_shop')->name('detail.shop');
 
 
 

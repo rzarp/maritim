@@ -17,5 +17,12 @@
                   <li><a class="nav-link beep beep-sidebar" href="{{route('lihat.product')}}">Lihat Product</a></li>
                 </ul>
 
+                <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-user-cog"></i> <span>Setting</span></a>
+                <ul class="dropdown-menu">
+                  <li><a class="nav-link beep beep-sidebar" href="{{route('setting.user')}}">Account</a></li>
+                </ul>
+              </li>
+              
             </ul>
         </aside>

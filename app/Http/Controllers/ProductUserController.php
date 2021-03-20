@@ -1,6 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
+use Illuminate\Support\Facades\Hash;
 
 use App\Product_user;
 use App\User;
@@ -9,6 +10,8 @@ use File;
 use DB;
 use Auth;
 use DataTables;
+
+
 
 class ProductUserController extends Controller
 {
@@ -119,6 +122,34 @@ class ProductUserController extends Controller
         DB::table('product_users')->where('id',$id)->delete();
 
         return redirect(route('lihat.product'))->with('pesan','Data Berhasil dihapus!');
+    }
+
+    // setting
+    public function setting() {
+        $data['user']= DB::table('users')->where('id', Auth::id())->get();
+        return view ('user-master.setting',$data);
+    }
+
+    public function edit_setting ($id) {
+        $data['user'] = User::find($id);
+        return view('user-master.edit-setting',$data);  
+    }
+
+    public function update_setting(Request $request, $id)
+    {
+        $request->validate([
+            'name' => 'required',
+            'email' => 'required',
+            'password' => 'required',
+        ]);
+
+        $user = User::find($id);
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        return redirect(route('setting.user'))->with('pesan','Data Berhasil Disimpan');
     }
 
 

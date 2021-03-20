@@ -47,12 +47,13 @@
               <div class="col-sm-6 col-lg-4 mb-4" data-aos="fade-up">
                 <div class="block-4 text-center border">
                   <figure class="block-4-image">
-                    <a href="shop-single.html"><img src="{{asset($p->gambar)}}" alt="Image placeholder" class="img-fluid"></a>
+                    <a href="#"><img src="{{asset($p->gambar)}}" alt="Image placeholder" class="img-fluid"></a>
                   </figure>
                   <div class="block-4-text p-4">
-                    <h3><a href="shop-single.html">{{$p->judul}}</a></h3>
+                    <h3><a href="{{ route('detail.shop',$p->id) }}">{{$p->judul}}</a></h3>
                     <p class="mb-0">{{$p->desk}}</p>
-                    <p class="text-primary font-weight-bold">{{$p->harga}}</p>
+                    <p class="mb-0">{{$p->user['name']}}</p>
+                    <p class="text-primary font-weight-bold">Rp.{{$p->harga}}</p>
                   </div>
                 </div>
               </div>
@@ -86,17 +87,9 @@
             </div>
             <div class="row" data-aos="fade-up">
               <div class="col-md-12 text-center">
-                <div class="site-block-27">
                   <ul>
-                    <li><a href="#">&lt;</a></li>
-                    <li class="active"><span>1</span></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#">4</a></li>
-                    <li><a href="#">5</a></li>
-                    <li><a href="#">&gt;</a></li>
+                    {{ $product->links() }}
                   </ul>
-                </div>
               </div>
             </div>
           </div>

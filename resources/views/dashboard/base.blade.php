@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>Maritim &mdash; Beranda</title>
+    <title>Maritim &mdash; @if (isset($subtitle)) {{$subtitle}} @endif </title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
@@ -45,14 +45,14 @@
               <div class="site-top-icons">
                 <ul>
                   <li><a href="{{route('home')}}"><span class="icon icon-person"></span></a></li>
-                  <li><a href="#"><span class="icon icon-heart-o"></span></a></li>
-                  <li>
+                  {{-- <li><a href="#"><span class="icon icon-heart-o"></span></a></li> --}}
+                  {{-- <li>
                     <a href="cart.html" class="site-cart">
                       <span class="icon icon-shopping_cart"></span>
                       <span class="count">2</span>
                     </a>
                   </li> 
-                  <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li>
+                  <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li> --}}
                 </ul>
               </div> 
             </div>
