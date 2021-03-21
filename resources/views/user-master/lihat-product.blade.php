@@ -1,7 +1,7 @@
 @extends('user-master.base')
 @section('content')
     <div class="section-header">
-        <h1>Lihat Berita</h1>        
+        <h1>Lihat Product</h1>        
     </div>
 
      @if (session()->has('pesan'))
@@ -38,25 +38,6 @@
                         </tr>
                       </thead>
                       <tbody>
-                        {{-- @foreach($product as $p)
-                        <tr>
-                          <th scope="row">{{ $loop->iteration }}</th>
-                          <td>{{ $p->judul}}</td>
-                          <td>{{ $p->harga}}</td>
-                          <td>{{ $p->wa}}</td>
-                          <td><img width="150px" src="{{ asset($p->gambar) }}"/></td>
-                          <td>{{ $p->desk}}</td>
-                          <td>{{ $p->alamat}}</td>
-                          <td>
-                            <form action="{{ route('product.destroy',['id' => $p->id]) }}" method="post">
-                                @method('DELETE')
-                                @csrf
-                                <a href="{{ route('product.edit',['id' => $p->id]) }}" class="btn btn-info btn-sm">Edit</a>
-                                <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
-                            </form>
-                          </td>
-                        </tr>
-                        @endforeach --}}
                       </tbody> 
                     </table>
                   </div>

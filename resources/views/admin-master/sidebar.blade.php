@@ -7,7 +7,7 @@
           </div>
           <ul class="sidebar-menu">
               <li class="menu-header">Dashboard</li>
-               <li><a class="nav-link" href="{{route('home')}}"><i class="fas fa-fire"></i> <span>Dashboard</span></a></li>
+               <li><a class="nav-link" href="/admin/home"><i class="fas fa-fire"></i> <span>Dashboard</span></a></li>
               </li>
             <li class="menu-header">Pages</li>             
               <li class="nav-item dropdown">

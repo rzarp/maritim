@@ -44,7 +44,7 @@
                                 @method('DELETE')
                                 @csrf
                                 <a href="{{ route('contact.detail',['id' => $ct->id]) }}" class="btn btn-info btn-sm">Lihat</a>
-                                <button type="submit" class="btn btn-danger btn-sm">Hapus</button>
+                                <button type="submit" class="btn btn-danger btn-sm delete-confirm">Hapus</button>
                             </form>
                           </td>
                         </tr>
@@ -57,4 +57,31 @@
     </div>
 
     
+@endsection
+
+
+@section('script')
+
+<script>
+  $('body').on('click','.delete-confirm',function (event) {
+    event.preventDefault();
+    const url = $(this).attr('href');
+
+    Swal.fire({
+      title: 'Apakah Kamu Yakin ? ',
+      text: "Hapus Data ini!",
+      icon: 'warning',
+      showCancelButton: true,
+      confirmButtonColor: '#3085d6',
+      cancelButtonColor: '#d33',
+      confirmButtonText: 'Ya, Hapus'
+    }).then((result) => {
+      if (result.value) {
+        window.location.href = url;
+      }
+    })
+  });
+</script>
+
+
 @endsection

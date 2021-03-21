@@ -4,11 +4,11 @@
       <div class="container">
         <div class="row align-items-start align-items-md-center justify-content-end">
           <div class="col-md-5 text-center text-md-left pt-5 pt-md-0">
-            <h1 class="mb-2">Finding Your Perfect Shoes</h1>
+            <h1 class="mb-2">Temukan UMKM yang anda butuhkan </h1>
             <div class="intro-text text-center text-md-left">
-              <p class="mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus at iaculis quam. Integer accumsan tincidunt fringilla. </p>
+              <p class="mb-4">Temukan Umkm pesisir yang ingin anda cari disini</p>
               <p>
-                <a href="#" class="btn btn-sm btn-primary">Shop Now</a>
+                <a href="{{route('dashboard.shop')}}" class="btn btn-sm btn-primary">Shop Now</a>
               </p>
             </div>
           </div>
@@ -50,7 +50,7 @@
       </div>
     </div>
 
-    <div class="site-section site-blocks-2">
+    {{-- <div class="site-section site-blocks-2">
       <div class="container">
         <div class="row">
           <div class="col-sm-6 col-md-6 col-lg-4 mb-4 mb-lg-0" data-aos="fade" data-aos-delay="">
@@ -88,7 +88,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> --}}
 
     <div class="site-section block-3 site-blocks-2 bg-light">
       <div class="container">

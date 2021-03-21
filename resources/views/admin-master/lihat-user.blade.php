@@ -46,7 +46,7 @@
                                         @csrf
                                         <div class="btn-group">
                                             <a class="btn btn-success" href="{{route ('edit.user',['id' => $users->id]) }}">Edit</a>
-                                            <button type="submit" class="btn btn-danger">Delete</button>
+                                            <button type="submit" class="btn btn-danger delete-confirm ">Delete</button>
                                         </div>
                                     </form>
                                 </td>
@@ -65,52 +65,7 @@
     
 @endsection
 
-{{-- @section('script')
-<script>
-    $('.data-table').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: "{{ route('lihat.product')}}",
-        columns: [
-            {
-                data: 'DT_RowIndex',
-                name: 'DT_RowIndex',
-            },            
-            {
-                data: 'judul',
-                name: 'judul',
-            },
-            {
-                data: 'harga',
-                name: 'harga',
-            },
-             {
-                data: 'wa',
-                name: 'wa',
-            },
-            {
-                data: 'gambar',
-                name: 'gambar',
-                render: function(data) {
-                return '<img width="100px" src="/'+data+'">'
-            },
-            },
-            {
-                data: 'desk',
-                name: 'desk',
-            },
-            {
-                data: 'alamat',
-                name: 'alamat',
-            },
-            {
-                data: 'action',
-                name: 'action',
-            },
-        ]
-    });
-    
-</script>
+@section('script')
 
 <script>
   $('body').on('click','.delete-confirm',function (event) {
@@ -134,4 +89,4 @@
 </script>
 
 
-@endsection --}}
+@endsection

@@ -41,8 +41,7 @@
                                     <form method="post" action="">
                                         @csrf
                                         <div class="btn-group">
-                                            <a class="btn btn-success" href="{{route ('edit.setting',['id' => $users->id]) }}">Edit</a>
-                                            {{-- <button type="submit" class="btn btn-danger">Delete</button> --}}
+                                            <a class="btn btn-success edit-confirm" href="{{route ('edit.setting',['id' => $users->id]) }}">Edit</a>
                                         </div>
                                     </form>
                                 </td>
@@ -61,66 +60,22 @@
     
 @endsection
 
-{{-- @section('script')
-<script>
-    $('.data-table').DataTable({
-        processing: true,
-        serverSide: true,
-        ajax: "{{ route('lihat.product')}}",
-        columns: [
-            {
-                data: 'DT_RowIndex',
-                name: 'DT_RowIndex',
-            },            
-            {
-                data: 'judul',
-                name: 'judul',
-            },
-            {
-                data: 'harga',
-                name: 'harga',
-            },
-             {
-                data: 'wa',
-                name: 'wa',
-            },
-            {
-                data: 'gambar',
-                name: 'gambar',
-                render: function(data) {
-                return '<img width="100px" src="/'+data+'">'
-            },
-            },
-            {
-                data: 'desk',
-                name: 'desk',
-            },
-            {
-                data: 'alamat',
-                name: 'alamat',
-            },
-            {
-                data: 'action',
-                name: 'action',
-            },
-        ]
-    });
-    
-</script>
+@section('script')
+
 
 <script>
-  $('body').on('click','.delete-confirm',function (event) {
+  $('body').on('click','.edit-confirm',function (event) {
     event.preventDefault();
     const url = $(this).attr('href');
 
     Swal.fire({
-      title: 'Apakah Kamu Yakin ? ',
-      text: "Hapus Data ini!",
-      icon: 'warning',
+      title: 'Apakah Anda Yakin ? ',
+      text: "Edit Data ini!",
+      icon: 'question',
       showCancelButton: true,
       confirmButtonColor: '#3085d6',
       cancelButtonColor: '#d33',
-      confirmButtonText: 'Ya, Hapus'
+      confirmButtonText: 'Ya, Edit'
     }).then((result) => {
       if (result.value) {
         window.location.href = url;
@@ -130,4 +85,4 @@
 </script>
 
 
-@endsection --}}
+@endsection

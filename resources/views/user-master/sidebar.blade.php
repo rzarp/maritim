@@ -1,13 +1,13 @@
 <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="">Maritim</a>
+            <a href="/">Maritim</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
             <a href="/">Mart</a>
           </div>
           <ul class="sidebar-menu">
               <li class="menu-header">Dashboard</li>
-               <li><a class="nav-link" href=""><i class="fas fa-fire"></i> <span>Dashboard</span></a></li>
+               <li><a class="nav-link" href="/home"><i class="fas fa-fire"></i> <span>Dashboard</span></a></li>
               </li>
             <li class="menu-header">Pages</li>             
               <li class="nav-item dropdown">
