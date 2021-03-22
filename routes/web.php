@@ -69,6 +69,8 @@ Route::get('/dashboard/berita','DashboardController@berita')->name('dashboard.be
 Route::get('/detail/shop/{id}','DashboardController@detail_shop')->name('detail.shop');
 // dashboard Detail Berita
 Route::get('/detail/berita/{id}','DashboardController@detail_berita')->name('detail.berita');
+// search
+Route::get('/search','DashboardController@search');
 
 
 

@@ -66,6 +66,14 @@ class DashboardController extends Controller
         return redirect(route('dashboard.contact'))->with('pesan','Pesan Berhasil dikirim');
     }
 
+    public function search(Request $request) {
+        $data['subtitle'] = "Search";
+        $search = $request->search;
+		$data['berita'] = Berita::where('judul','like',"%".$search."%")->paginate(6);
+		$data['product'] = Product_user::where('judul','like',"%".$search."%")->paginate(6);
+		return view('dashboard.search',$data);
+    }
+
 
     
 }
