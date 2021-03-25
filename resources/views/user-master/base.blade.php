@@ -15,7 +15,7 @@
   <link rel="stylesheet" href="../node_modules/weathericons/css/weather-icons.min.css">
   <link rel="stylesheet" href="../node_modules/weathericons/css/weather-icons-wind.min.css">
   <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote.min.css" rel="stylesheet">
-
+  <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
   <!-- Template CSS -->
   <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
   <link rel="stylesheet" href="{{asset('assets/css/components.css')}}">
@@ -80,6 +80,7 @@
   
   <script type="text/javascript" charset="utf8" src="https://cdn.datatables.net/1.10.23/js/jquery.dataTables.min.js"></script>
   <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+  <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
 
   @yield('script')
 </body>

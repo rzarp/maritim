@@ -37,7 +37,7 @@
 
             <div class="col-12 mb-3 mb-md-0 col-md-4 order-1 order-md-2 text-center">
               <div class="site-logo">
-                <a href="/" class="js-logo-clone">Maritim</a>
+                <a href="/" class="js-logo-clone">{{ config('app.name', 'Maritim') }}</a>
               </div>
             </div>
             
@@ -46,14 +46,6 @@
               <div class="site-top-icons">
                 <ul>
                   <li><a href="{{route('home')}}"><span class="icon icon-person"></span></a></li>
-                  {{-- <li><a href="#"><span class="icon icon-heart-o"></span></a></li> --}}
-                  {{-- <li>
-                    <a href="cart.html" class="site-cart">
-                      <span class="icon icon-shopping_cart"></span>
-                      <span class="count">2</span>
-                    </a>
-                  </li> 
-                  <li class="d-inline-block d-md-none ml-md-0"><a href="#" class="site-menu-toggle js-menu-toggle"><span class="icon-menu"></span></a></li> --}}
                 </ul>
               </div> 
               @else

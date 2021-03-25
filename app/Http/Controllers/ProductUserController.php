@@ -124,6 +124,12 @@ class ProductUserController extends Controller
         return redirect(route('lihat.product'))->with('pesan','Data Berhasil dihapus!');
     }
 
+    // pariwisata
+
+    public function inputpariwisata() {
+        return view ('user-master.input-pariwisata');
+    }
+
     // setting
     public function setting() {
         $data['user']= DB::table('users')->where('id', Auth::id())->get();

@@ -74,6 +74,16 @@ class DashboardController extends Controller
 		return view('dashboard.search',$data);
     }
 
+    public function vismis() {
+        $data['subtitle'] = "Visi & Misi";
+        return view('dashboard.vismis',$data);
+    }
+
+    public function about() {
+        $data['subtitle'] = "About";
+        return view('dashboard.about',$data);
+    }
+
 
     
 }

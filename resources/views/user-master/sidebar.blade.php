@@ -16,6 +16,14 @@
                   <li><a class="nav-link beep beep-sidebar" href="{{route('input.product')}}">Input Product</a></li>
                   <li><a class="nav-link beep beep-sidebar" href="{{route('lihat.product')}}">Lihat Product</a></li>
                 </ul>
+                
+                <li class="nav-item dropdown">
+                <a href="#" class="nav-link has-dropdown"><i class="fas fa-map-marker-alt"></i> <span>Pariwisata</span></a>
+                <ul class="dropdown-menu">
+                  <li><a class="nav-link beep beep-sidebar" href="{{route('input.pariwisata')}}">Input Pariwisata</a></li>
+                  <li><a class="nav-link beep beep-sidebar" href="">Data Pariwisata</a></li>
+                </ul>
+              </li>
 
                 <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-user-cog"></i> <span>Setting</span></a>
