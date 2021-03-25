@@ -245,7 +245,7 @@ class AdminController extends Controller
 
     // Vismis
     public function vismis() {
-        retun view('admin-master.input-vismis');
+        return view('admin-master.input-vismis');
     }
 
 
