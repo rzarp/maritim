@@ -5,9 +5,9 @@
       <div class="container">
         <div class="row">
           <div class="col-md-12">
-            <h2 class="h3 mb-3 text-black">Any Question ?</h2>
+            <h2 class="h3 mb-3 text-black">Contact Us</h2>
           </div>
-          <div class="col-md-12">
+          <div class="col-md-6">
             <div class="col-md-12">
                 @if (session()->has('pesan'))
                    <div class="alert alert-success alert-dismissible show fade">
@@ -54,23 +54,14 @@
             </form>
           </div>
         </div>
-          {{-- <div class="col-md-5 ml-auto">
-            <div class="p-4 border mb-3">
-              <span class="d-block text-primary h6 text-uppercase">New York</span>
-              <p class="mb-0">203 Fake St. Mountain View, San Francisco, California, USA</p>
+          <div class="col-md-6 ml-auto">
+            <div class="p-4 border mb-3 z-depth-1-half map-container" id="map-container-google-1">
+              <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.7355215928796!2d106.88729981449272!3d-6.166161662145976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f5228fa16fcd%3A0xb255d86c2d4ba973!2sDispotmar%20Mabesal!5e0!3m2!1sid!2sid!4v1616608685011!5m2!1sid!2sid" width="500" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
             </div>
-            <div class="p-4 border mb-3">
-              <span class="d-block text-primary h6 text-uppercase">London</span>
-              <p class="mb-0">203 Fake St. Mountain View, San Francisco, California, USA</p>
-            </div>
-            <div class="p-4 border mb-3">
-              <span class="d-block text-primary h6 text-uppercase">Canada</span>
-              <p class="mb-0">203 Fake St. Mountain View, San Francisco, California, USA</p>
-            </div>
-
-          </div> --}}
+          </div>
         </div>
       </div>
     </div>
 
 @endsection
+

@@ -28,6 +28,9 @@ Route::post('/product/tambah','ProductUserController@store')->name('product.stor
 Route::get('/product/edit/{id}','ProductUserController@edit')->name('product.edit');
 Route::put('/product/edit/{id}','ProductUserController@update')->name('product.update');
 Route::get('/product/hapus/{id}','ProductUserController@destroy')->name('product.destroy');
+// Pariwisata (User)
+Route::get('/pariwisata/input','ProductUserController@inputpariwisata')->name('input.pariwisata');
+Route::get('/pariwisata/data','ProductUserController@lihatpariwisata')->name('lihat.pariwisata');
 
 // User (Admin)
 Route::get('/user/indexuser','AdminController@indexuser')->name('index.user');
@@ -53,6 +56,8 @@ Route::get('/berita/lihat','AdminController@lihatberita')->name('lihat.berita');
 Route::get('/berita/edit/{id}','AdminController@editberita')->name('berita.edit');
 Route::put('/berita/edit/{id}','AdminController@updateberita')->name('berita.update');
 Route::get('/berita/hapus/{id}','AdminController@destroyberita')->name('berita.destroy');
+// Vismis (Admin)
+Route::get('/input/vismis','AdminController@inputvismis')->name('input.vismis');
 // User (User)
 Route::get('/user/setting','ProductUserController@setting')->name('setting.user');
 Route::get('/user/editsetting/{id}','ProductUserController@edit_setting')->name('edit.setting');
@@ -71,8 +76,10 @@ Route::get('/detail/shop/{id}','DashboardController@detail_shop')->name('detail.
 Route::get('/detail/berita/{id}','DashboardController@detail_berita')->name('detail.berita');
 // search
 Route::get('/search','DashboardController@search');
-
-
+// visimisi
+Route::get('/dashboard/visimisi','DashboardController@vismis')->name('vismis');
+// about
+Route::get('/dashboard/about','DashboardController@about')->name('about');
 
 
 

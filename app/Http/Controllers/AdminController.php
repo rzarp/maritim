@@ -243,5 +243,10 @@ class AdminController extends Controller
         return redirect(route('lihat.berita'))->with('pesan','Data Berhasil dihapus!');
     }
 
+    // Vismis
+    public function vismis() {
+        retun view('admin-master.input-vismis');
+    }
+
 
 }

@@ -8,7 +8,7 @@
             <div class="col-lg-3 col-md-6 col-sm-6 col-12">
               <div class="card card-statistic-1">
                 <div class="card-icon bg-primary">
-                  <i class="far fa-user"></i>
+                  <i class="fas fa-columns"></i>
                 </div>
                 <div class="card-wrap">
                   <div class="card-header">
@@ -16,6 +16,22 @@
                   </div>
                   <div class="card-body">
                     {{$product}}
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-lg-3 col-md-6 col-sm-6 col-12">
+              <div class="card card-statistic-1">
+                <div class="card-icon bg-success">
+                  <i class="fas fa-map-marker-alt"></i>
+                </div>
+                <div class="card-wrap">
+                  <div class="card-header">
+                    <h4>Pariwisata</h4>
+                  </div>
+                  <div class="card-body">
+                    0
                   </div>
                 </div>
               </div>
