@@ -27,6 +27,7 @@
               <li class="nav-item dropdown">
                 <a href="#" class="nav-link has-dropdown"><i class="fas fa-th-large"></i> <span>Pariwisata</span></a>
                 <ul class="dropdown-menu">
+                  <li><a class="nav-link beep beep-sidebar" href="{{route('input.pariwisata')}}">Input Pariwisata</a></li>
                   <li><a class="nav-link beep beep-sidebar" href="">Lihat Pariwisata</a></li>
                 </ul>
               </li>

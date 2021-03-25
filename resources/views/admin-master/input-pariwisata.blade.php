@@ -37,10 +37,6 @@
                       <label>Alamat</label>
                       <textarea class="form-control" rows="3" name="alamat" required></textarea>
                     </div>
-                     <div class="form-group">
-                      <label>Jumlah Kamar</label>
-                      <input type="number" name="" class="form-control" placeholder="Jumlah Kamar" required>
-                    </div>
                     <div class="form-group">
                     <label>Harga</label>
                         <div class="input-group mb-3">
