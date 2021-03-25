@@ -38,7 +38,7 @@
                       <textarea class="form-control" rows="3" name="alamat" required></textarea>
                     </div>
                     <div class="form-group">
-                    <label>Harga</label>
+                    <label>Harga Tiket Masuk</label>
                         <div class="input-group mb-3">
                             <div class="input-group-prepend">
                                 <span class="input-group-text" id="basic-addon1">Rp</span>
